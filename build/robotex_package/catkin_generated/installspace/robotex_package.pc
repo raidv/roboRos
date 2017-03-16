@@ -1,0 +1,8 @@
+prefix=/home/raid/robotex_ws/install
+
+Name: robotex_package
+Description: Description of robotex_package
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/raid/robotex_ws/install/lib 
+Requires: 

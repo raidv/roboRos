@@ -1,0 +1,2 @@
+robotex_package:turtlebot_teleop
+-DCATKIN_DEVEL_PREFIX=/home/raid/robotex_ws/devel -DCMAKE_INSTALL_PREFIX=/home/raid/robotex_ws/install -G Unix Makefiles

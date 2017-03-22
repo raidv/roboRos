@@ -1,0 +1,6 @@
+[submodule "src/rosserial"]
+	path = src/rosserial
+	url = https://github.com/ros-drivers/rosserial.git
+[submodule "src/turtlebot"]
+	path = src/turtlebot
+	url = https://github.com/turtlebot/turtlebot.git

@@ -21,12 +21,12 @@ def formatVelocity(data):
     steps = 255 # maximum value to send to motors
     unitV = steps/maxV # value for velocity 1 m/s
     unitRV = steps/maxRV # value for angular velocity 1 rad/s
-''' 
-	Don't have to provide maximum values actually - it would be easier to check if
-	sent value is too big or not.
-	But it is important that the maxV and steps values correspond to each other
-	eg. if you send motor dac value 255, it rotates at a velocity of 0.2 m/s
-'''
+    ''' 
+    Don't have to provide maximum values actually - it would be easier to check if
+    sent value is too big or not.
+    But it is important that the maxV and steps values correspond to each other
+    eg. if you send motor dac value 255, it rotates at a velocity of 0.2 m/s
+    '''
 
     motors = [0, 0, 0]
 
@@ -48,11 +48,11 @@ def formatVelocity(data):
 def callback(data):
     motors = [0, 0, 0]
     motors = formatVelocity(data)
-    rospy.loginfo(rospy.get_caller_id() + "I heard \n %s \n %s \n", data.linear, data.angular)
+    #rospy.loginfo(rospy.get_caller_id() + "I heard \n %s \n %s \n", data.linear, data.angular)
 
-    print ("I calculated: \n m0 = " + str(motors[0]) + "\n m1 = "+ str(motors[1]) + " \n m2 = " + str( motors[2]))
+    #print ("I calculated: \n m0 = " + str(motors[0]) + "\n m1 = "+ str(motors[1]) + " \n m2 = " + str( motors[2]))
     # Send correctly calculated command       
-    #sendCommand(motors[0],motors[1], motors[2])
+    sendCommand(motors[0],motors[1], motors[2])
     
 
 # Function that subscribes to topics
@@ -70,9 +70,9 @@ def listener():
 
 
 # Open serial connection with Motor Controllers
-"""port = "/dev/ttyACM0"
+port = "/dev/ttyACM0"
 baud = 9600
 ser = serial.Serial(port, baud, serial.EIGHTBITS, timeout=0)
-"""
+
 if __name__ == '__main__':
     listener()

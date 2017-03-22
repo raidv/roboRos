@@ -12,7 +12,7 @@ def sendSerial(command):
 
 # Function that sends the command to hardware
 def sendCommand(m0, m1, m2):
-    return sendSerial('a' + str(a) + 'b' + str(b) + 'c' + str(c)) 
+    return sendSerial('a' + str(m0) + 'b' + str(m1) + 'c' + str(m2)) 
 
 def formatVelocity(data):
     maxV = 0.2 # maximum linear velocity
@@ -48,9 +48,9 @@ def formatVelocity(data):
 def callback(data):
     motors = [0, 0, 0]
     motors = formatVelocity(data)
-    #rospy.loginfo(rospy.get_caller_id() + "I heard \n %s \n %s \n", data.linear, data.angular)
+    rospy.loginfo(rospy.get_caller_id() + "I heard \n %s \n %s \n", data.linear, data.angular)
 
-    #print ("I calculated: \n m0 = " + str(motors[0]) + "\n m1 = "+ str(motors[1]) + " \n m2 = " + str( motors[2]))
+    print ("I calculated: \n m0 = " + str(motors[0]) + "\n m1 = "+ str(motors[1]) + " \n m2 = " + str( motors[2]))
     # Send correctly calculated command       
     sendCommand(motors[0],motors[1], motors[2])
     
@@ -74,5 +74,11 @@ port = "/dev/ttyACM0"
 baud = 9600
 ser = serial.Serial(port, baud, serial.EIGHTBITS, timeout=0)
 
+listener()
+
 if __name__ == '__main__':
-    listener()
+    try:
+        listener()
+    except KeyboardInterrupt:
+        print "KeyboardInterrupt"
+        ser.close()

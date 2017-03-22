@@ -1,6 +1,9 @@
 [submodule "src/rosserial"]
 	path = src/rosserial
+	branch = indigo-devel
 	url = https://github.com/ros-drivers/rosserial.git
 [submodule "src/turtlebot"]
 	path = src/turtlebot
+	branch = indigo
 	url = https://github.com/turtlebot/turtlebot.git
+

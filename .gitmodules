@@ -1,9 +1,6 @@
-[submodule "src/rosserial"]
-	path = src/rosserial
-	branch = indigo-devel
-	url = https://github.com/ros-drivers/rosserial.git
-[submodule "src/turtlebot"]
-	path = src/turtlebot
-	branch = indigo
-	url = https://github.com/turtlebot/turtlebot.git
-
+[submodule "serial"]
+	path = serial
+	url = https://github.com/wjwwood/serial.git
+[submodule "serial-example"]
+	path = serial-example
+	url = https://github.com/garyservin/serial-example.git
